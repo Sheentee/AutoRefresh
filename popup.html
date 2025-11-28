@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoRefresh</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add specific styles for AutoRefresh inputs that might not be in the shared CSS */
+        .input-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        input[type="number"] {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            padding: 8px 12px;
+            font-family: var(--font-family);
+            font-size: 14px;
+            width: 100%;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-stop {
+            background-color: var(--error-color);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+
+        .btn-stop:hover {
+            opacity: 0.9;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .stats-container {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .count-large {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        /* Fix for donate button text inheriting transparent fill from footer */
+        .btn-donate {
+            -webkit-text-fill-color: initial !important;
+            text-fill-color: initial !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AutoRefresh</h1>
+        </div>
+
+        <div class="card">
+            <div id="config-section">
+                <div class="label">Refresh Interval (Seconds)</div>
+                <div class="input-group">
+                    <input type="number" id="interval-input" min="1" value="30" placeholder="Seconds">
+                </div>
+                <button id="start-btn" class="btn-primary">Start Refreshing</button>
+            </div>
+
+            <div id="status-section" class="hidden">
+                <div class="label">Status</div>
+                <div class="stats-container">
+                    <div class="count-large" id="refresh-count">0</div>
+                    <div class="label">Refreshes</div>
+                </div>
+                <div class="label" style="margin-top: 12px; text-align: center;">
+                    Next refresh in <span id="countdown" style="color: var(--text-primary)">--</span>s
+                </div>
+                <button id="stop-btn" class="btn-stop" style="margin-top: 16px;">Stop</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-donate">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=ZB5Y7JEMGEGAS" target="_blank"
+                    class="btn-donate">
+                    Donate with PayPal
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
