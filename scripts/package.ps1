@@ -1,41 +1,35 @@
 $ErrorActionPreference = "Stop"
 
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$rootDir = Split-Path -Parent $scriptDir
-$distDir = Join-Path $rootDir "dists"
-$zipPath = Join-Path $distDir "AutoRefresh.zip"
+$scriptDir = $PSScriptRoot
+$projectRoot = Split-Path -Parent $scriptDir
+$distsDir = Join-Path $projectRoot "dists"
 
-# Create dists directory if it doesn't exist
-if (-not (Test-Path $distDir)) {
-    New-Item -ItemType Directory -Path $distDir | Out-Null
-    Write-Host "Created dists directory."
+if (-not (Test-Path $distsDir)) {
+    New-Item -ItemType Directory -Path $distsDir | Out-Null
 }
 
-# Remove existing zip file
-if (Test-Path $zipPath) {
-    Remove-Item $zipPath -Force
-    Write-Host "Removed existing zip file."
+$outputFile = Join-Path $distsDir "AutoRefresh.zip"
+
+if (Test-Path $outputFile) {
+    Remove-Item $outputFile
 }
 
-# Define exclusion list
-$exclude = @(
-    "*.git*",
-    "*.gitignore*",
-    "*scripts*",
-    "*dists*",
-    "*.zip",
-    "*node_modules*",
-    "*.DS_Store"
+Push-Location $projectRoot
+
+$files = @(
+    "icons", 
+    "about-sheentee.js",
+    "background.js",  
+    "manifest.json",
+    "popup.html",
+    "popup.js",
+    "styles.css"
 )
 
-# Get files to zip
-$files = Get-ChildItem -Path $rootDir -Exclude $exclude  | Where-Object { 
-    $_.FullName -notmatch "\\.git" -and 
-    $_.FullName -notmatch "\\scripts" -and 
-    $_.FullName -notmatch "\\dists" 
+try {
+    Compress-Archive -Path $files -DestinationPath $outputFile -Force
+    Write-Host "Extension packaged successfully to $outputFile"
 }
-
-# Create the zip file
-Compress-Archive -Path $files.FullName -DestinationPath $zipPath -Force
-
-Write-Host "Extension packaged successfully at $zipPath"
+finally {
+    Pop-Location
+}

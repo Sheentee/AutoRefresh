@@ -216,16 +216,6 @@ body.options-page {
     margin-bottom: 20px;
 }
 
-/* Footer */
-.footer {
-    margin-top: 20px;
-    margin: 0;
-    background: linear-gradient(to right, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 h2 {
     font-size: 18px;
     font-weight: 600;
@@ -398,14 +388,6 @@ body.options-page {
     margin-bottom: 20px;
 }
 
-/* Footer */
-.footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-secondary);
-}
-
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -415,27 +397,29 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Donation Button */
-.footer-donate {
-    margin-top: 8px;
-    display: flex;
-    justify-content: flex-start;
+/* Footer */
+.footer {
+    text-align: center;
+    margin: 0;
+    background: var(--bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 20px;
+    flex-shrink: 0;
+    z-index: 10;
 }
 
-.btn-donate {
-    background-color: #0070ba;
-    color: #ffffff !important;
-    /* Force white text */
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 11px;
+.footer-info {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.footer-info a {
+    color: var(--accent-color);
+    text-decoration: none;
     font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.2s;
-    display: inline-block;
 }
 
-.btn-donate:hover {
-    background-color: #005ea6;
-    text-decoration: none;
+.footer-info a:hover {
+    text-decoration: underline;
 }

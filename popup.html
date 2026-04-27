@@ -77,12 +77,6 @@
             color: var(--accent-color);
             line-height: 1;
         }
-
-        /* Fix for donate button text inheriting transparent fill from footer */
-        .btn-donate {
-            -webkit-text-fill-color: initial !important;
-            text-fill-color: initial !important;
-        }
     </style>
 </head>
 
@@ -114,15 +108,11 @@
             </div>
         </div>
 
-        <div class="footer">
-            <div class="footer-donate">
-                <a href="https://www.paypal.com/donate/?hosted_button_id=ZB5Y7JEMGEGAS" target="_blank"
-                    class="btn-donate">
-                    Donate with PayPal
-                </a>
-            </div>
+        <div class="footer fixed-footer">
+            <!-- Content loaded from about-sheentee.js -->
         </div>
     </div>
+    <script src="about-sheentee.js"></script>
     <script src="popup.js"></script>
 </body>
 
