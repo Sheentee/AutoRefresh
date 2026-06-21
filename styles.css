@@ -251,3 +251,119 @@ a:hover {
 .footer-info a:hover {
     text-decoration: underline;
 }
+
+/* Tab System */
+.tabs-header {
+    display: flex;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 4px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.tab-btn.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-content {
+    display: block;
+}
+
+/* Changelog Layout */
+.changelog-card {
+    padding: 16px;
+}
+
+.changelog-container {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.changelog-version {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 4px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.changelog-version:first-child {
+    margin-top: 0;
+}
+
+.changelog-version h3 {
+    margin: 0;
+    font-size: 15px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.changelog-date {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.changelog-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.changelog-list li {
+    margin-bottom: 6px;
+}
+
+.changelog-list li::marker {
+    color: var(--accent-color);
+}
+
+/* Scrollbar Styling for Scrollable Tab Content */
+.changelog-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.changelog-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3px;
+}
+
+.changelog-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.changelog-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

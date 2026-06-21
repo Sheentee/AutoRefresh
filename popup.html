@@ -83,28 +83,70 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>AutoRefresh</h1>
+            <h1 id="extension-title">AutoRefresh</h1>
         </div>
 
-        <div class="card">
-            <div id="config-section">
-                <div class="label">Refresh Interval (Seconds)</div>
-                <div class="input-group">
-                    <input type="number" id="interval-input" min="1" value="30" placeholder="Seconds">
-                </div>
-                <button id="start-btn" class="btn-primary">Start Refreshing</button>
-            </div>
+        <div class="tabs-header">
+            <button class="tab-btn active" data-tab="refresh-tab">Refresh</button>
+            <button class="tab-btn" data-tab="changelog-tab">Changelog</button>
+        </div>
 
-            <div id="status-section" class="hidden">
-                <div class="label">Status</div>
-                <div class="stats-container">
-                    <div class="count-large" id="refresh-count">0</div>
-                    <div class="label">Refreshes</div>
+        <div id="refresh-tab" class="tab-content active-content">
+            <div class="card">
+                <div id="config-section">
+                    <div class="label">Refresh Interval (Seconds)</div>
+                    <div class="input-group">
+                        <input type="number" id="interval-input" min="1" value="30" placeholder="Seconds">
+                    </div>
+                    <button id="start-btn" class="btn-primary">Start Refreshing</button>
                 </div>
-                <div class="label" style="margin-top: 12px; text-align: center;">
-                    Next refresh in <span id="countdown" style="color: var(--text-primary)">--</span>s
+
+                <div id="status-section" class="hidden">
+                    <div class="label">Status</div>
+                    <div class="stats-container">
+                        <div class="count-large" id="refresh-count">0</div>
+                        <div class="label">Refreshes</div>
+                    </div>
+                    <div class="label" style="margin-top: 12px; text-align: center;">
+                        Next refresh in <span id="countdown" style="color: var(--text-primary)">--</span>s
+                    </div>
+                    <button id="stop-btn" class="btn-stop" style="margin-top: 16px;">Stop</button>
                 </div>
-                <button id="stop-btn" class="btn-stop" style="margin-top: 16px;">Stop</button>
+            </div>
+        </div>
+
+        <div id="changelog-tab" class="tab-content">
+            <div class="card changelog-card">
+                <div class="changelog-container">
+                    <div class="changelog-version">
+                        <h3>v1.2</h3>
+                        <span class="changelog-date">2026-06-21</span>
+                    </div>
+                    <ul class="changelog-list">
+                        <li>Added dynamic tabs for Refresh controls and Change Log.</li>
+                        <li>Implemented dynamic title versioning from manifest.</li>
+                        <li>Enhanced popup UI/UX scrollable layout.</li>
+                    </ul>
+
+                    <div class="changelog-version">
+                        <h3>v1.1</h3>
+                        <span class="changelog-date">2026-04-28</span>
+                    </div>
+                    <ul class="changelog-list">
+                        <li>Added background worker support with alarms.</li>
+                        <li>Persistent storage support for auto-refresh interval.</li>
+                        <li>Dynamic countdown timer & auto-refresh counters.</li>
+                    </ul>
+
+                    <div class="changelog-version">
+                        <h3>v1.0</h3>
+                        <span class="changelog-date">2026-01-04</span>
+                    </div>
+                    <ul class="changelog-list">
+                        <li>Initial release with dark theme design.</li>
+                        <li>Basic page refreshing capabilities.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 

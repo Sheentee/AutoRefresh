@@ -1,4 +1,4 @@
-# AutoRefresh
+# AutoRefresh - Chrome Browser Extension
 
 A clean, modern, and efficient browser extension that automatically refreshes pages after a customizable interval.
 
@@ -23,7 +23,7 @@ https://chromewebstore.google.com/detail/autorefresh/foknagopegkaakhljgcgcoheenn
 
 https://addons.mozilla.org/en-US/firefox/addon/sheentee-autorefresh/
 
-### Manual Installation
+### Manual Installation - Chrome
 
 1.  **Clone the Repository**:
     ```bash

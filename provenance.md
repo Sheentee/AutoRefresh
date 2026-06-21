@@ -1,6 +1,6 @@
 # AI Provenance
 
-This browser extension, **IP Address & Time**, was developed with the assistance of artificial intelligence.
+This browser extension, **AutoRefresh**, was developed with the assistance of artificial intelligence.
 
 ## AI Involvement
 
